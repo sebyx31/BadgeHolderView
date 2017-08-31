@@ -6,6 +6,7 @@ import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.RectF;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.View;
@@ -78,7 +79,8 @@ public class BadgeView extends View {
     }
 
     private void drawBadgeBackground(final Canvas canvas) {
-        canvas.drawRoundRect(0f, 0f, getWidth(), getHeight(), getCornerRadius(), getCornerRadius(), badgePaint);
+        RectF rect = new RectF(0f, 0f, getWidth(), getHeight());
+        canvas.drawRoundRect(rect, getCornerRadius(), getCornerRadius(), badgePaint);
     }
 
     private int reconcileSize(int contentSize, int measureSpec) {
